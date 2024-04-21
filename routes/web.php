@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers;
 Route::get('/', function () {
     // $categories = ["Starters" , "Breakfast" , "Lunch" , "Dinner"];
     $categories = [
@@ -82,3 +82,5 @@ Route::get('/', function () {
     
     return view('home' , ["categories" => $categories]);
 });
+
+Route::get('/dashboard/home', [Controllers\DashboardController::class, 'index'])->name('dashboard.index');
