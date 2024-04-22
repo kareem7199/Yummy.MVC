@@ -11,6 +11,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
+                    <th>Created At</th>
                     <th>Details</th>
                     <th>Update</th>
                     <th>Delete</th>
@@ -21,6 +22,7 @@
                 <tr>
                     <td class="align-middle">{{$category->id}}</td>
                     <td class="align-middle">{{$category->name}}</td>
+                    <td class="align-middle">{{$category->created_at}}</td>
                     <td class="align-middle">
                         <a href="{{route('categories.show', $category->id)}}" class="btn btn-warning"> <i class="fas fa-eye"></i> Details</a>
                     </td>

@@ -23,6 +23,15 @@ class MealController extends Controller
 
     public function store () {
 
+
+        request()->validate([
+            'name' => 'required|string|max:255|min:3',
+            'category_id' => 'required|exists:categories,id',
+            'ingredients' => 'required|string|min:3',
+            'price' => 'required|numeric|min:0',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust image validation rules as needed
+        ]);
+
         $fileNameWithExt = request()->file('img')->getClientOriginalName();
         $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
         $extension = request()->file('img')->getClientOriginalExtension();
@@ -33,7 +42,6 @@ class MealController extends Controller
         $category_id = request() -> category_id;
         $ingredients = request() -> ingredients;
         $price = request() -> price;
-        $img = "this is img";
 
         $meal = Meal::create([
             'category_id' => $category_id,
@@ -57,11 +65,19 @@ class MealController extends Controller
     }
 
     public function update(Meal $meal) {
-            // Update the meal with the new data
+        
+        request()->validate([
+            'name' => 'required|string|max:255|min:3',
+            'category_id' => 'required|exists:categories,id',
+            'ingredients' => 'required|string|min:3',
+            'price' => 'required|numeric|min:0',
+        ]);
+
         $meal->name = request()->name;
         $meal->ingredients = request()->ingredients;
         $meal->price = request()->price;
         $meal->category_id = request()->category_id;
+        
         $meal->save();
         
         return to_route('meals.index');

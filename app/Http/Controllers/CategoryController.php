@@ -18,6 +18,14 @@ class CategoryController extends Controller
 
     public function store () {
 
+        request()->validate([
+            'name' => ['required', 'string', 'max:255', 'min:3', 'regex:/^[a-zA-Z\s]+$/'],
+        ], [
+            'name.regex' => 'The name field format is invalid. It should only contain alphabetic characters and spaces.',
+        ]);
+        
+        
+
         $name = request()->name;
 
         $meal = Category::create([
@@ -37,6 +45,11 @@ class CategoryController extends Controller
     }
 
     public function update(Category $category) {
+
+        request()->validate([
+            'name' => 'required|string|max:255|min:3',
+        ]);
+        
         $category->name = request()->name;
         $category->save();
         

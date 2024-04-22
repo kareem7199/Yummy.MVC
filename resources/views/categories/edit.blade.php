@@ -2,10 +2,21 @@
 
 @extends("layouts.dashboard")
 
+
 @section('content')
     <h1>Edit Category</h1>
     <br>
     <br>
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
     <form action="{{ route('categories.update', $category->id) }}" method="POST">
         @csrf

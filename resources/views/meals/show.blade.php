@@ -39,6 +39,11 @@
     <input name="category" class="form-control" value="{{$meal -> category -> name}}" disabled />
 </div>
 
+<div class="form-group">
+    <label class="col-form-label">Created At</label>
+    <input type="datetime"  class="form-control" value="{{$meal -> created_at}}" disabled />
+</div>
+
 <a href="{{ route('meals.edit', $meal->id) }}" class="btn btn-primary">Edit</a> |
 <a href="{{ route('meals.index') }}" class="btn btn-light">Cancel</a>
 

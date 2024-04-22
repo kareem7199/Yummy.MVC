@@ -7,21 +7,31 @@
 <br/>
 <br/>
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <form action="{{ route('meals.store') }}" method="POST" enctype="multipart/form-data">
     @csrf 
     <div class="form-group">
         <label class="col-form-label" for="name">Name</label>
-        <input name="name" class="form-control" required/>
+        <input name="name" class="form-control" required value="{{ old('name') }}"/>
     </div>
 
     <div class="form-group">
         <label class="col-form-label" for="ingredients">Ingredients</label>
-        <input name="ingredients" class="form-control" required/>
+        <input name="ingredients" class="form-control" required value="{{ old('ingredients') }}"/>
     </div>
 
     <div class="form-group">
         <label class="col-form-label" for="price">Price</label>
-        <input name="price" class="form-control" required/>
+        <input name="price" class="form-control" required value="{{ old('price') }}"/>
     </div>
 
     <div class="form-group">
@@ -29,7 +39,7 @@
         <select  name="category_id" class="form-control" required>
             <option value={{null}}>-- Select Category --</option>
             @foreach ($categories as $category)
-                <option value={{$category -> id}}>{{$category -> name}}</option>
+                <option @if (old('category_id') == $category -> id) selected @endif value={{$category -> id}}>{{$category -> name}}</option>
             @endforeach
         </select>
     </div>
