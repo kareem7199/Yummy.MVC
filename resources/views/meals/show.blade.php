@@ -39,7 +39,7 @@
     <input name="category" class="form-control" value="{{$meal -> category -> name}}" disabled />
 </div>
 
-<a class="btn btn-primary">Edit</a> |
+<a href="{{ route('meals.edit', $meal->id) }}" class="btn btn-primary">Edit</a> |
 <a href="{{ route('meals.index') }}" class="btn btn-light">Cancel</a>
 
 @endsection
