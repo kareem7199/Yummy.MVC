@@ -267,17 +267,17 @@
             <h3>{{ $category['name'] }}</h3>
         </div>
         <div class="row gy-5">
-            @if (count($category['products']) > 0)
-                @foreach($category['products'] as $product)
+            @if (count($category['meals']) > 0)
+                @foreach($category->meals as $meal)
                     <div class="col-lg-4 menu-item">
-                        <a href="assets/img/menu/{{ $product['img'] }}" class="glightbox"><img src="assets/img/menu/{{ $product['img'] }}" class="menu-img img-fluid" alt=""></a>
-                        <h4>{{ $product['name'] }}</h4>
-                        <p class="ingredients">{{ $product['ingredients'] }}</p>
-                        <p class="price">{{ $product['price'] }}</p>
+                        <img src="{{ asset('storage/meals/'.$meal->img) }}" class="menu-img img-fluid" alt="">
+                        <h4>{{ $meal->name }}</h4>
+                        <p class="ingredients">{{ $meal->ingredients }}</p>
+                        <p class="price">{{ $meal->price }}</p>
                     </div><!-- Menu Item -->
                 @endforeach
             @else
-                <p class="alert alert-danger">No products available in this category.</p>
+                <p class="alert alert-danger">No meals available in this category.</p>
             @endif
         </div>
     </div>

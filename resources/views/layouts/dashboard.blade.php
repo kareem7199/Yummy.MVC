@@ -24,7 +24,7 @@
                         <a class="nav-link text-dark" href="{{route('dashboard.index')}}">Home</a>  
                     </li>
                     <li class= "nav-item">
-                    <a class="nav-link text-dark">Categories</a>
+                    <a class="nav-link text-dark" href="{{route('meals.index')}}">Meals</a>
                     </li>
                 </ul>
             </div>
