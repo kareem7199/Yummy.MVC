@@ -10,7 +10,7 @@ Route::get('/', function () {
 
     return view('home' , ["categories" => $categories]);
 
-});
+})->name('home');
 
 Route::get('/dashboard/home', [Controllers\DashboardController::class, 'index'])->name('dashboard.index');
 
@@ -31,5 +31,13 @@ Route::get('/dashboard/categories/{category}/edit' , [Controllers\CategoryContro
 Route::put('/dashboard/categories/{category}' , [Controllers\CategoryController::class , 'update'])->name('categories.update');
 Route::delete('/dashboard/categories/{category}' , [Controllers\CategoryController::class , 'destroy'])->name('categories.destroy');
 Route::post('/dashboard/categories' , [Controllers\CategoryController::class , 'store'])->name('categories.store');
+
+
+//category
+Route::get('/dashboard/reservations' , [Controllers\ReservationController::class , 'index'])->name('reservations.index');
+Route::get('/dashboard/reservations/create' , [Controllers\ReservationController::class , 'create'])->name('reservations.create');
+Route::get('/dashboard/reservations/{reservation}' , [Controllers\ReservationController::class , 'show'])->name('reservations.show');
+Route::delete('/dashboard/reservations/{reservation}' , [Controllers\ReservationController::class , 'destroy'])->name('reservations.destroy');
+Route::post('/dashboard/reservations' , [Controllers\ReservationController::class , 'store'])->name('reservations.store');
 
 
