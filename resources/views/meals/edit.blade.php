@@ -13,22 +13,22 @@
 
         <div class="form-group">
             <label class="col-form-label" for="name">Name</label>
-            <input name="name" class="form-control" value="{{ $meal->name }}" />
+            <input name="name" class="form-control" value="{{ $meal->name }}" required/>
         </div>
 
         <div class="form-group">
             <label class="col-form-label" for="ingredients">Ingredients</label>
-            <input name="ingredients" class="form-control" value="{{ $meal->ingredients }}" />
+            <input name="ingredients" class="form-control" value="{{ $meal->ingredients }}" required/>
         </div>
 
         <div class="form-group">
             <label class="col-form-label" for="price">Price</label>
-            <input name="price" class="form-control" value="{{ $meal->price }}" />
+            <input name="price" class="form-control" value="{{ $meal->price }}" required/>
         </div>
 
         <div class="form-group">
             <label class="col-form-label" for="category_id">Category</label>
-            <select name="category_id" class="form-control">
+            <select name="category_id" class="form-control" required>
                 <option value="">-- Select Category --</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}" {{ $meal->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>

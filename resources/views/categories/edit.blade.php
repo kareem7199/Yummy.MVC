@@ -13,7 +13,7 @@
 
         <div class="form-group">
             <label class="col-form-label" for="name">Name</label>
-            <input name="name" class="form-control" value="{{ $category->name }}" />
+            <input name="name" class="form-control" value="{{ $category->name }}" required/>
         </div>
 
         <input type="submit" value="Update" class="btn btn-primary" /> |

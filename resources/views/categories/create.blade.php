@@ -11,7 +11,7 @@
     @csrf 
     <div class="form-group">
         <label class="col-form-label" for="name">Name</label>
-        <input name="name" class="form-control" />
+        <input name="name" class="form-control" required/>
     </div>
 
     <input type="submit" value="Create" class="btn btn-primary" /> |
