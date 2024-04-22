@@ -7,6 +7,11 @@ use App\Models\Reservation;
 class ReservationController extends Controller
 {
     
+    public function index () {
+        $reservations = Reservation::all();
+        return view('reservations.index' , ["reservations" => $reservations]);
+    }
+
     public function store()
     {
 
@@ -26,4 +31,13 @@ class ReservationController extends Controller
         return to_route("home");
     }
     
+    public function show (Reservation $reservation) {
+
+        return view('reservations.show' , ["reservation" => $reservation]);
+    }
+
+    public function destroy(Reservation $reservation) {
+        $reservation->delete();
+        return to_route('reservations.index');
+    }
 }

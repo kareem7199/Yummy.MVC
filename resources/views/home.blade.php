@@ -581,7 +581,7 @@
               <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
               </div>
-              <div class="text-center"><button type="submit">Book a Table</button></div>
+              <div class="text-center mt-5"><button type="submit">Book a Table</button></div>
             </form>
           </div><!-- End Reservation Form -->
 
