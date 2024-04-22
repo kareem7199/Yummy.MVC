@@ -50,4 +50,26 @@ class MealController extends Controller
 
         return view('meals.show' , ["meal" => $meal]);
     }
+
+    public function edit(Meal $meal) {
+        $categories = Category::all();
+        return view('meals.edit', ['meal' => $meal , 'categories' => $categories]);
+    }
+
+    public function update(Meal $meal) {
+            // Update the meal with the new data
+        $meal->name = request()->name;
+        $meal->ingredients = request()->ingredients;
+        $meal->price = request()->price;
+        $meal->category_id = request()->category_id;
+        $meal->save();
+        
+        return to_route('meals.index');
+    }
+
+    public function destroy(Meal $meal) {
+        $meal->delete();
+        return to_route('meals.index');
+    }
+
 }
