@@ -79,8 +79,10 @@
         </ul>
       </nav><!-- .navbar -->
 
-      <a class="btn-book-a-table" href="#book-a-table">Book a Table</a>
-      <a class="btn-book-a-table" href="/login">Login</a>
+      <div>
+        <a class="btn-book-a-table" href="#book-a-table">Book a Table</a>
+        <a class="btn-book-a-table" style="margin-left: 4px" href="/login">Login</a>
+      </div>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
