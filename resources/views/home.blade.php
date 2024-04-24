@@ -80,6 +80,7 @@
       </nav><!-- .navbar -->
 
       <a class="btn-book-a-table" href="#book-a-table">Book a Table</a>
+      <a class="btn-book-a-table" href="/login">Login</a>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
@@ -583,13 +584,43 @@
               </div>
               <div class="text-center mt-5"><button type="submit">Book a Table</button></div>
             </form>
+            {{-- <a href="http://127.0.0.1:8000/login" class="btn btn-primary">Login</a> --}}
           </div><!-- End Reservation Form -->
 
         </div>
 
       </div>
     </section><!-- End Book A Table Section -->
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+          </ul>
+          <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-danger" type="submit">Logout</button>
+            </form>
+        </div>
+      </div>
+  </nav>
 
+  <div class="container">
+    @auth
+      <h1>Welcome, {{ Auth::user()->name }}</h1>
+    @else
+      <h1>Welcome, Guest</h1>
+    @endauth
+
+  </div>
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="gallery section-bg">
       <div class="container" data-aos="fade-up">
@@ -700,7 +731,6 @@
 
       </div>
     </section><!-- End Contact Section -->
-
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

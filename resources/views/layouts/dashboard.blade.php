@@ -33,6 +33,7 @@
                     </li>
                 </ul>
             </div>
+            <a href="{{route('logout')}}" class="btn btn-danger">log out</a>
         </div>
 
         
