@@ -81,7 +81,12 @@
 
       <div>
         <a class="btn-book-a-table" href="#book-a-table">Book a Table</a>
-        <a class="btn-book-a-table" style="margin-left: 4px" href="/login">Login</a>
+        @auth
+          <a class="btn-book-a-table" style="margin-left: 4px" href="{{route('logout')}}">Logout</a>
+        @else
+          <a class="btn-book-a-table" style="margin-left: 4px" href="/login">Login</a>
+        @endauth
+
       </div>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
