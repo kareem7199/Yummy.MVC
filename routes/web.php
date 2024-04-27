@@ -38,14 +38,13 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('/reservations/create' , [Controllers\ReservationController::class , 'create'])->name('reservations.create');
     Route::get('/reservations/{reservation}' , [Controllers\ReservationController::class , 'show'])->name('reservations.show');
     Route::delete('/reservations/{reservation}' , [Controllers\ReservationController::class , 'destroy'])->name('reservations.destroy');
-    Route::post('/reservations' , [Controllers\ReservationController::class , 'store'])->name('reservations.store');
 });
+Route::post('/reservations' , [Controllers\ReservationController::class , 'store'])->name('reservations.store');
 
 //auth
 // Route::get('/register', [Controllers\AuthController::class, 'register'])->name('register');
 // Route::post('/register', [Controllers\AuthController::class, 'registerPost'])->name('register');
 Route::get('/login', [Controllers\AuthController::class, 'login'])->name('login.index');
 Route::post('/login', [Controllers\AuthController::class, 'loginPost'])->name('login');
-Route::get('/', [Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/logout', [Controllers\AuthController::class, 'logout'])->name('logout');
 

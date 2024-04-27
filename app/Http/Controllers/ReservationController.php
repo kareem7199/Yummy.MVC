@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservation;
+use App\Mail\ReservationEmail;
+use Illuminate\Support\Facades\Mail;
+
 class ReservationController extends Controller
 {
     
@@ -25,6 +28,8 @@ class ReservationController extends Controller
         ]);
     
         $reservation = Reservation::create($validatedData);
+
+        Mail::to($validatedData['email'])->send(new ReservationEmail($validatedData));
 
         session()->flash('success', 'Reservation has been successfully created!');
     
