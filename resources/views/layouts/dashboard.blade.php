@@ -31,6 +31,10 @@
                     <li class= "nav-item">
                         <a class="nav-link text-dark" href="{{route('categories.index')}}">Categories</a>
                     </li>
+                    
+                    <li class= "nav-item">
+                        <a class="nav-link text-dark" href="{{route('users.index')}}">Users</a>
+                    </li>
                 </ul>
             </div>
             <a href="{{route('logout')}}" class="btn btn-danger">log out</a>

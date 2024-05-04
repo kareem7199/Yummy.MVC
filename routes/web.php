@@ -38,12 +38,19 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('/reservations/create' , [Controllers\ReservationController::class , 'create'])->name('reservations.create');
     Route::get('/reservations/{reservation}' , [Controllers\ReservationController::class , 'show'])->name('reservations.show');
     Route::delete('/reservations/{reservation}' , [Controllers\ReservationController::class , 'destroy'])->name('reservations.destroy');
+    
+    //users
+    Route::get('/users' , [Controllers\UserController::class , 'index'])->name('users.index');
+    Route::get('/users/create' , [Controllers\UserController::class , 'create'])->name('users.create');
+    Route::get('/users/{user}' , [Controllers\UserController::class , 'show'])->name('users.show');
+    Route::get('/users/{user}/edit' , [Controllers\UserController::class , 'edit'])->name('users.edit');
+    Route::put('/users/{user}' , [Controllers\UserController::class , 'update'])->name('users.update');
+    Route::delete('/users/{user}' , [Controllers\UserController::class , 'destroy'])->name('users.destroy');
+    Route::post('/users' , [Controllers\UserController::class , 'store'])->name('users.store');
+
 });
 Route::post('/reservations' , [Controllers\ReservationController::class , 'store'])->name('reservations.store');
 
-//auth
-// Route::get('/register', [Controllers\AuthController::class, 'register'])->name('register');
-// Route::post('/register', [Controllers\AuthController::class, 'registerPost'])->name('register');
 Route::get('/login', [Controllers\AuthController::class, 'login'])->name('login.index');
 Route::post('/login', [Controllers\AuthController::class, 'loginPost'])->name('login');
 Route::get('/logout', [Controllers\AuthController::class, 'logout'])->name('logout');
