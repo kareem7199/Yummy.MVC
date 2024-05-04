@@ -76,16 +76,16 @@
           <li><a href="#chefs">Chefs</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a class="btn-book-a-table" href="#book-a-table">Book a Table</a></li>
+          @auth
+            <a class="btn-book-a-table" style="margin-left: 4px" href="{{route('logout')}}">Logout</a>
+          @else
+            <a class="btn-book-a-table" style="margin-left: 4px" href="/login">Login</a>
+          @endauth
         </ul>
       </nav><!-- .navbar -->
 
       <div>
-        <a class="btn-book-a-table" href="#book-a-table">Book a Table</a>
-        @auth
-          <a class="btn-book-a-table" style="margin-left: 4px" href="{{route('logout')}}">Logout</a>
-        @else
-          <a class="btn-book-a-table" style="margin-left: 4px" href="/login">Login</a>
-        @endauth
 
       </div>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
